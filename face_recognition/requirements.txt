@@ -1,6 +1,10 @@
 # FaceNet-based Facial Recognition Requirements
 # Install with: pip install -r requirements.txt
 
+# Web Framework
+flask>=2.3.0
+flask-cors>=4.0.0
+
 # Core ML libraries
 tensorflow>=2.10.0
 keras-facenet>=0.3.2
