@@ -1,0 +1,19 @@
+# FaceNet-based Facial Recognition Requirements
+# Install with: pip install -r requirements.txt
+
+# Core ML libraries
+tensorflow>=2.10.0
+keras-facenet>=0.3.2
+mtcnn>=0.1.1
+
+# Computer Vision
+opencv-python>=4.8.0
+
+# Utilities
+numpy>=1.23.0
+Pillow>=9.0.0
+scipy>=1.10.0
+
+# Optional but recommended
+scikit-learn>=1.2.0
+matplotlib>=3.7.0

@@ -1,0 +1,48 @@
+# Python virtual environment
+face_recognition/venv/
+face_recognition/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Python cache
+*.py[cod]
+*$py.class
+
+# Face recognition data
+face_recognition/face_data/*.pkl
+face_recognition/face_data/*.npy
+
+# Temporary files
+*.log
+*.tmp
+/tmp/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Environment variables
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node modules (if any)
+node_modules/
+
+# PHP cache
+vendor/
+composer.lock
