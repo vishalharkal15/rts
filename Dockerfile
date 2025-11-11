@@ -7,8 +7,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
+# Enable Apache modules for Railway
+RUN a2enmod rewrite headers env setenvif
 
 # Set working directory
 WORKDIR /var/www/html

@@ -1,4 +1,9 @@
 <?php
+// Railway.app configuration (handles HTTPS, proxy headers, etc.)
+if (file_exists(__DIR__ . '/railway_config.php')) {
+    require_once __DIR__ . '/railway_config.php';
+}
+
 // Start session only if not already started
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
