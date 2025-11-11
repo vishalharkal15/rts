@@ -6,14 +6,15 @@ PORT=${PORT:-80}
 
 echo "Starting Apache on port $PORT..."
 
-# Update Apache ports configuration
+# Update Apache to listen on the Railway-provided PORT
 sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf
+sed -i "s/<VirtualHost \*:80>/<VirtualHost *:$PORT>/g" /etc/apache2/sites-available/000-default.conf
 
-# Replace PORT variable in VirtualHost config (escape the $ properly)
-sed -i "s/\\\${PORT}/$PORT/g" /etc/apache2/sites-available/000-default.conf
+echo "Apache ports.conf:"
+cat /etc/apache2/ports.conf | grep Listen
 
-# Also update any remaining instances
-sed -i "s/\*:80/\*:$PORT/g" /etc/apache2/sites-available/000-default.conf
+echo "Apache VirtualHost config:"
+head -5 /etc/apache2/sites-available/000-default.conf
 
 # Ensure directories exist with proper permissions
 mkdir -p /var/www/html/database_json
