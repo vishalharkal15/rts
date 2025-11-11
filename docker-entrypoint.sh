@@ -7,8 +7,8 @@ PORT=${PORT:-80}
 echo "Starting Apache on port $PORT..."
 
 # Update Apache to listen on the Railway-provided PORT
-sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf
-sed -i "s/<VirtualHost \*:80>/<VirtualHost *:$PORT>/g" /etc/apache2/sites-available/000-default.conf
+sed -i "s/Listen 80/Listen 0.0.0.0:$PORT/g" /etc/apache2/ports.conf
+sed -i "s/<VirtualHost \*:80>/<VirtualHost 0.0.0.0:$PORT>/g" /etc/apache2/sites-available/000-default.conf
 
 echo "Apache ports.conf:"
 cat /etc/apache2/ports.conf | grep Listen
