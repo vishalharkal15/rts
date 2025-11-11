@@ -1,6 +1,9 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
+# Set ServerName globally to suppress warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
