@@ -19,6 +19,10 @@ COPY . /var/www/html/
 # Copy Apache configuration
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 
+# Copy and set up entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # Create necessary directories with proper permissions
 RUN mkdir -p /var/www/html/database_json \
     && mkdir -p /var/www/html/system/Ch@tr@@m \
@@ -27,8 +31,8 @@ RUN mkdir -p /var/www/html/database_json \
     && chmod -R 777 /var/www/html/database_json \
     && chmod -R 777 /var/www/html/system
 
-# Expose port 80
-EXPOSE 80
+# Expose port (Railway will set PORT env variable)
+EXPOSE ${PORT:-80}
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Use custom entrypoint that handles PORT configuration
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
