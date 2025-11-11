@@ -1,0 +1,15 @@
+# Ignore development files
+.git
+.gitignore
+.env.local
+*.log
+
+# Keep database directory but ignore specific files if needed
+# database_json/*.json
+
+# Keep system directory
+# system/
+
+# Documentation
+README.md
+setup_database.sql

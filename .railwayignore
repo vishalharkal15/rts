@@ -1,0 +1,5 @@
+# Railway.app will use JSON database by default (no MySQL needed)
+# The config.php is already set to use config_json.php
+
+# For Railway deployment, we'll use the lightweight JSON database
+# If you want to use MySQL later, uncomment the MySQL config in config.php
