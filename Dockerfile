@@ -32,7 +32,7 @@ RUN mkdir -p /var/www/html/database_json \
     && chmod -R 777 /var/www/html/system
 
 # Expose port (Railway will set PORT env variable)
-EXPOSE ${PORT:-80}
+EXPOSE 80
 
 # Use custom entrypoint that handles PORT configuration
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

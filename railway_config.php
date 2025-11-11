@@ -24,7 +24,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
     $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
 
-// Set secure session cookies for production
+// Set secure session cookies for production BEFORE starting session
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     ini_set('session.cookie_secure', '1');
     ini_set('session.cookie_httponly', '1');
