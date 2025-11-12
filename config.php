@@ -1,10 +1,10 @@
 <?php
-// Railway.app configuration (handles HTTPS, proxy headers, etc.)
+// ✅ Railway.app configuration - loads ini_set() BEFORE session starts
 if (file_exists(__DIR__ . '/railway_config.php')) {
     require_once __DIR__ . '/railway_config.php';
 }
 
-// Start session only if not already started
+// ✅ Now start session (after railway_config.php sets ini values)
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
